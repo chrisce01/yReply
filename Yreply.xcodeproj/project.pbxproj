@@ -1,0 +1,772 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1A0CF5A2E66BFC9756B2A8B8 /* Pods_YreplyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7347C8D27BA9BA86F09739FC /* Pods_YreplyUITests.framework */; };
+		28E3017A229C03720024E0BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30179229C03720024E0BD /* AppDelegate.swift */; };
+		28E3017C229C03720024E0BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E3017B229C03720024E0BD /* ViewController.swift */; };
+		28E3017F229C03720024E0BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E3017D229C03720024E0BD /* Main.storyboard */; };
+		28E30181229C03740024E0BD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28E30180229C03740024E0BD /* Assets.xcassets */; };
+		28E30184229C03740024E0BD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E30182229C03740024E0BD /* LaunchScreen.storyboard */; };
+		28E3018F229C03740024E0BD /* YreplyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E3018E229C03740024E0BD /* YreplyTests.swift */; };
+		28E3019A229C03740024E0BD /* YreplyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30199229C03740024E0BD /* YreplyUITests.swift */; };
+		28E301B0229C36220024E0BD /* qmark1.png in Resources */ = {isa = PBXBuildFile; fileRef = 28E301AE229C36220024E0BD /* qmark1.png */; };
+		28E301B2229C4FCC0024E0BD /* MainScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E301B1229C4FCC0024E0BD /* MainScreenViewController.swift */; };
+		28E301B4229C6E660024E0BD /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 28E301B3229C6E660024E0BD /* GoogleService-Info.plist */; };
+		2FEF93E862F265496FD51AC0 /* Pods_YreplyTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E1A914D5CD60ECC8944BA60 /* Pods_YreplyTests.framework */; };
+		3A45111E20269E039FCE1AF2 /* Pods_Yreply.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E359ECC1A70081FF6D5CE450 /* Pods_Yreply.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		28E3018B229C03740024E0BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28E3016E229C03720024E0BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28E30175229C03720024E0BD;
+			remoteInfo = Yreply;
+		};
+		28E30196229C03740024E0BD /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 28E3016E229C03720024E0BD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 28E30175229C03720024E0BD;
+			remoteInfo = Yreply;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		28E30176229C03720024E0BD /* Yreply.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yreply.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28E30179229C03720024E0BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		28E3017B229C03720024E0BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		28E3017E229C03720024E0BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		28E30180229C03740024E0BD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		28E30183229C03740024E0BD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		28E30185229C03740024E0BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28E3018A229C03740024E0BD /* YreplyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YreplyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28E3018E229C03740024E0BD /* YreplyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YreplyTests.swift; sourceTree = "<group>"; };
+		28E30190229C03740024E0BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28E30195229C03740024E0BD /* YreplyUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YreplyUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		28E30199229C03740024E0BD /* YreplyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YreplyUITests.swift; sourceTree = "<group>"; };
+		28E3019B229C03740024E0BD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		28E301AE229C36220024E0BD /* qmark1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qmark1.png; sourceTree = "<group>"; };
+		28E301B1229C4FCC0024E0BD /* MainScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreenViewController.swift; sourceTree = "<group>"; };
+		28E301B3229C6E660024E0BD /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		40FB43FA0178539A63ECCE56 /* Pods-YreplyUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YreplyUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YreplyUITests/Pods-YreplyUITests.release.xcconfig"; sourceTree = "<group>"; };
+		5C4D6DCE19D871DB81F8C4F5 /* Pods-YreplyTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YreplyTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YreplyTests/Pods-YreplyTests.debug.xcconfig"; sourceTree = "<group>"; };
+		71EFBA046620F7178245E9B6 /* Pods-YreplyUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YreplyUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YreplyUITests/Pods-YreplyUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		7347C8D27BA9BA86F09739FC /* Pods_YreplyUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YreplyUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E1A914D5CD60ECC8944BA60 /* Pods_YreplyTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_YreplyTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F01DB96B82708DBCE85D15F4DD14EFA /* SCSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCSDKCoreKit.framework; sourceTree = "<group>"; };
+		B2543FAC23440F8732CFCDB6 /* Pods-Yreply.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yreply.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Yreply/Pods-Yreply.debug.xcconfig"; sourceTree = "<group>"; };
+		C714F457D9F17C7C09853366 /* Pods-Yreply.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yreply.release.xcconfig"; path = "Pods/Target Support Files/Pods-Yreply/Pods-Yreply.release.xcconfig"; sourceTree = "<group>"; };
+		D47CF901C4B9361BD57661C2C3E6F92A /* SCSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SCSDKLoginKit.framework; sourceTree = "<group>"; };
+		E359ECC1A70081FF6D5CE450 /* Pods_Yreply.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yreply.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC2ED04A65B6C438EDDB009C /* Pods-YreplyTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YreplyTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-YreplyTests/Pods-YreplyTests.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		28E30173229C03720024E0BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A45111E20269E039FCE1AF2 /* Pods_Yreply.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28E30187229C03740024E0BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FEF93E862F265496FD51AC0 /* Pods_YreplyTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28E30192229C03740024E0BD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1A0CF5A2E66BFC9756B2A8B8 /* Pods_YreplyUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		28E3016D229C03720024E0BD = {
+			isa = PBXGroup;
+			children = (
+				28E30178229C03720024E0BD /* Yreply */,
+				28E3018D229C03740024E0BD /* YreplyTests */,
+				28E30198229C03740024E0BD /* YreplyUITests */,
+				28E30177229C03720024E0BD /* Products */,
+				E7FB84B24FB17EA4AC9370EF /* Pods */,
+				A01934F44B77B48B561C83DC /* Frameworks */,
+				28E301AC229C08640024E0BD /* Recovered References */,
+			);
+			sourceTree = "<group>";
+		};
+		28E30177229C03720024E0BD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				28E30176229C03720024E0BD /* Yreply.app */,
+				28E3018A229C03740024E0BD /* YreplyTests.xctest */,
+				28E30195229C03740024E0BD /* YreplyUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		28E30178229C03720024E0BD /* Yreply */ = {
+			isa = PBXGroup;
+			children = (
+				28E30179229C03720024E0BD /* AppDelegate.swift */,
+				28E3017B229C03720024E0BD /* ViewController.swift */,
+				28E3017D229C03720024E0BD /* Main.storyboard */,
+				28E301B1229C4FCC0024E0BD /* MainScreenViewController.swift */,
+				28E30180229C03740024E0BD /* Assets.xcassets */,
+				28E30182229C03740024E0BD /* LaunchScreen.storyboard */,
+				28E30185229C03740024E0BD /* Info.plist */,
+				28E301AE229C36220024E0BD /* qmark1.png */,
+				28E301B3229C6E660024E0BD /* GoogleService-Info.plist */,
+			);
+			path = Yreply;
+			sourceTree = "<group>";
+		};
+		28E3018D229C03740024E0BD /* YreplyTests */ = {
+			isa = PBXGroup;
+			children = (
+				28E3018E229C03740024E0BD /* YreplyTests.swift */,
+				28E30190229C03740024E0BD /* Info.plist */,
+			);
+			path = YreplyTests;
+			sourceTree = "<group>";
+		};
+		28E30198229C03740024E0BD /* YreplyUITests */ = {
+			isa = PBXGroup;
+			children = (
+				28E30199229C03740024E0BD /* YreplyUITests.swift */,
+				28E3019B229C03740024E0BD /* Info.plist */,
+			);
+			path = YreplyUITests;
+			sourceTree = "<group>";
+		};
+		28E301AC229C08640024E0BD /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				D47CF901C4B9361BD57661C2C3E6F92A /* SCSDKLoginKit.framework */,
+				9F01DB96B82708DBCE85D15F4DD14EFA /* SCSDKCoreKit.framework */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		A01934F44B77B48B561C83DC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E359ECC1A70081FF6D5CE450 /* Pods_Yreply.framework */,
+				8E1A914D5CD60ECC8944BA60 /* Pods_YreplyTests.framework */,
+				7347C8D27BA9BA86F09739FC /* Pods_YreplyUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E7FB84B24FB17EA4AC9370EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B2543FAC23440F8732CFCDB6 /* Pods-Yreply.debug.xcconfig */,
+				C714F457D9F17C7C09853366 /* Pods-Yreply.release.xcconfig */,
+				5C4D6DCE19D871DB81F8C4F5 /* Pods-YreplyTests.debug.xcconfig */,
+				EC2ED04A65B6C438EDDB009C /* Pods-YreplyTests.release.xcconfig */,
+				71EFBA046620F7178245E9B6 /* Pods-YreplyUITests.debug.xcconfig */,
+				40FB43FA0178539A63ECCE56 /* Pods-YreplyUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		28E30175229C03720024E0BD /* Yreply */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28E3019E229C03740024E0BD /* Build configuration list for PBXNativeTarget "Yreply" */;
+			buildPhases = (
+				0CF88D57ECA0D9D8A9406318 /* [CP] Check Pods Manifest.lock */,
+				28E30172229C03720024E0BD /* Sources */,
+				28E30173229C03720024E0BD /* Frameworks */,
+				28E30174229C03720024E0BD /* Resources */,
+				C106AEBB2B72499BAB7A15C6 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Yreply;
+			productName = Yreply;
+			productReference = 28E30176229C03720024E0BD /* Yreply.app */;
+			productType = "com.apple.product-type.application";
+		};
+		28E30189229C03740024E0BD /* YreplyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28E301A1229C03740024E0BD /* Build configuration list for PBXNativeTarget "YreplyTests" */;
+			buildPhases = (
+				205FB14D7B93E0849BA60120 /* [CP] Check Pods Manifest.lock */,
+				28E30186229C03740024E0BD /* Sources */,
+				28E30187229C03740024E0BD /* Frameworks */,
+				28E30188229C03740024E0BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28E3018C229C03740024E0BD /* PBXTargetDependency */,
+			);
+			name = YreplyTests;
+			productName = YreplyTests;
+			productReference = 28E3018A229C03740024E0BD /* YreplyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		28E30194229C03740024E0BD /* YreplyUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 28E301A4229C03740024E0BD /* Build configuration list for PBXNativeTarget "YreplyUITests" */;
+			buildPhases = (
+				C26905E57FB182FC46154B6F /* [CP] Check Pods Manifest.lock */,
+				28E30191229C03740024E0BD /* Sources */,
+				28E30192229C03740024E0BD /* Frameworks */,
+				28E30193229C03740024E0BD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				28E30197229C03740024E0BD /* PBXTargetDependency */,
+			);
+			name = YreplyUITests;
+			productName = YreplyUITests;
+			productReference = 28E30195229C03740024E0BD /* YreplyUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		28E3016E229C03720024E0BD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Akshat Jagga";
+				TargetAttributes = {
+					28E30175229C03720024E0BD = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+					28E30189229C03740024E0BD = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 28E30175229C03720024E0BD;
+					};
+					28E30194229C03740024E0BD = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = 28E30175229C03720024E0BD;
+					};
+				};
+			};
+			buildConfigurationList = 28E30171229C03720024E0BD /* Build configuration list for PBXProject "Yreply" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 28E3016D229C03720024E0BD;
+			productRefGroup = 28E30177229C03720024E0BD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				28E30175229C03720024E0BD /* Yreply */,
+				28E30189229C03740024E0BD /* YreplyTests */,
+				28E30194229C03740024E0BD /* YreplyUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		28E30174229C03720024E0BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28E30184229C03740024E0BD /* LaunchScreen.storyboard in Resources */,
+				28E30181229C03740024E0BD /* Assets.xcassets in Resources */,
+				28E301B4229C6E660024E0BD /* GoogleService-Info.plist in Resources */,
+				28E3017F229C03720024E0BD /* Main.storyboard in Resources */,
+				28E301B0229C36220024E0BD /* qmark1.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28E30188229C03740024E0BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28E30193229C03740024E0BD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0CF88D57ECA0D9D8A9406318 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Yreply-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		205FB14D7B93E0849BA60120 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YreplyTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C106AEBB2B72499BAB7A15C6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Yreply/Pods-Yreply-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cheers/Cheers.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
+				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
+				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
+				"${PODS_ROOT}/SnapSDK/SCSDKBitmojiKit.framework",
+				"${PODS_ROOT}/SnapSDK/SCSDKCoreKit.framework",
+				"${PODS_ROOT}/SnapSDK/SCSDKCreativeKit.framework",
+				"${PODS_ROOT}/SnapSDK/SCSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/YYImage/YYImage.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cheers.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSDKBitmojiKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSDKCreativeKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SCSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Yreply/Pods-Yreply-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C26905E57FB182FC46154B6F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-YreplyUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		28E30172229C03720024E0BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28E3017C229C03720024E0BD /* ViewController.swift in Sources */,
+				28E3017A229C03720024E0BD /* AppDelegate.swift in Sources */,
+				28E301B2229C4FCC0024E0BD /* MainScreenViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28E30186229C03740024E0BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28E3018F229C03740024E0BD /* YreplyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		28E30191229C03740024E0BD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				28E3019A229C03740024E0BD /* YreplyUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		28E3018C229C03740024E0BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28E30175229C03720024E0BD /* Yreply */;
+			targetProxy = 28E3018B229C03740024E0BD /* PBXContainerItemProxy */;
+		};
+		28E30197229C03740024E0BD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 28E30175229C03720024E0BD /* Yreply */;
+			targetProxy = 28E30196229C03740024E0BD /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		28E3017D229C03720024E0BD /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28E3017E229C03720024E0BD /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		28E30182229C03740024E0BD /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				28E30183229C03740024E0BD /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		28E3019C229C03740024E0BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		28E3019D229C03740024E0BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		28E3019F229C03740024E0BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B2543FAC23440F8732CFCDB6 /* Pods-Yreply.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NG9N8THD45;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/SnapSDK",
+				);
+				INFOPLIST_FILE = Yreply/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.akshatjagga.Yreply;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		28E301A0229C03740024E0BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C714F457D9F17C7C09853366 /* Pods-Yreply.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NG9N8THD45;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/SnapSDK",
+				);
+				INFOPLIST_FILE = Yreply/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.akshatjagga.Yreply;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		28E301A2229C03740024E0BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5C4D6DCE19D871DB81F8C4F5 /* Pods-YreplyTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NG9N8THD45;
+				INFOPLIST_FILE = YreplyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.akshatjagga.YreplyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yreply.app/Yreply";
+			};
+			name = Debug;
+		};
+		28E301A3229C03740024E0BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = EC2ED04A65B6C438EDDB009C /* Pods-YreplyTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NG9N8THD45;
+				INFOPLIST_FILE = YreplyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.akshatjagga.YreplyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Yreply.app/Yreply";
+			};
+			name = Release;
+		};
+		28E301A5229C03740024E0BD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 71EFBA046620F7178245E9B6 /* Pods-YreplyUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NG9N8THD45;
+				INFOPLIST_FILE = YreplyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.akshatjagga.YreplyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Yreply;
+			};
+			name = Debug;
+		};
+		28E301A6229C03740024E0BD /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 40FB43FA0178539A63ECCE56 /* Pods-YreplyUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = NG9N8THD45;
+				INFOPLIST_FILE = YreplyUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.akshatjagga.YreplyUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Yreply;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		28E30171229C03720024E0BD /* Build configuration list for PBXProject "Yreply" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28E3019C229C03740024E0BD /* Debug */,
+				28E3019D229C03740024E0BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28E3019E229C03740024E0BD /* Build configuration list for PBXNativeTarget "Yreply" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28E3019F229C03740024E0BD /* Debug */,
+				28E301A0229C03740024E0BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28E301A1229C03740024E0BD /* Build configuration list for PBXNativeTarget "YreplyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28E301A2229C03740024E0BD /* Debug */,
+				28E301A3229C03740024E0BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		28E301A4229C03740024E0BD /* Build configuration list for PBXNativeTarget "YreplyUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				28E301A5229C03740024E0BD /* Debug */,
+				28E301A6229C03740024E0BD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 28E3016E229C03720024E0BD /* Project object */;
+}

@@ -1,0 +1,6 @@
+framework module Pods_Yreply {
+  umbrella header "Pods-Yreply-umbrella.h"
+
+  export *
+  module * { export * }
+}
