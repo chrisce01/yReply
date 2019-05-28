@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>768004977942-hdje791sr8nrfk2av1lf4je89sja93q4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.768004977942-hdje791sr8nrfk2av1lf4je89sja93q4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyD_5v99_-HlJgTUtlvs5CIP8q2IaGiTGpA</string>
+	<key>GCM_SENDER_ID</key>
+	<string>768004977942</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.akshatjagga.Yreply</string>
+	<key>PROJECT_ID</key>
+	<string>yreply-adc82</string>
+	<key>STORAGE_BUCKET</key>
+	<string>yreply-adc82.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:768004977942:ios:01660725468448a0</string>
+	<key>DATABASE_URL</key>
+	<string>https://yreply-adc82.firebaseio.com</string>
+</dict>
+</plist>
