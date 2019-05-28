@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1A0CF5A2E66BFC9756B2A8B8 /* Pods_YreplyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7347C8D27BA9BA86F09739FC /* Pods_YreplyUITests.framework */; };
+		28E17741229D44790037ABDC /* CreatePollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E17740229D44790037ABDC /* CreatePollViewController.swift */; };
 		28E3017A229C03720024E0BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30179229C03720024E0BD /* AppDelegate.swift */; };
 		28E3017C229C03720024E0BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E3017B229C03720024E0BD /* ViewController.swift */; };
 		28E3017F229C03720024E0BD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28E3017D229C03720024E0BD /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		28E17740229D44790037ABDC /* CreatePollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePollViewController.swift; sourceTree = "<group>"; };
 		28E30176229C03720024E0BD /* Yreply.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yreply.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E30179229C03720024E0BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28E3017B229C03720024E0BD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				28E30179229C03720024E0BD /* AppDelegate.swift */,
 				28E3017B229C03720024E0BD /* ViewController.swift */,
 				28E3017D229C03720024E0BD /* Main.storyboard */,
+				28E17740229D44790037ABDC /* CreatePollViewController.swift */,
 				28E301B1229C4FCC0024E0BD /* MainScreenViewController.swift */,
 				28E30180229C03740024E0BD /* Assets.xcassets */,
 				28E30182229C03740024E0BD /* LaunchScreen.storyboard */,
@@ -365,6 +368,7 @@
 				"${BUILT_PRODUCTS_DIR}/Cheers/Cheers.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/KMPlaceholderTextView/KMPlaceholderTextView.framework",
 				"${BUILT_PRODUCTS_DIR}/PINCache/PINCache.framework",
 				"${BUILT_PRODUCTS_DIR}/PINOperation/PINOperation.framework",
 				"${BUILT_PRODUCTS_DIR}/Pastel/Pastel.framework",
@@ -381,6 +385,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cheers.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMPlaceholderTextView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINCache.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PINOperation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Pastel.framework",
@@ -425,6 +430,7 @@
 				28E3017C229C03720024E0BD /* ViewController.swift in Sources */,
 				28E3017A229C03720024E0BD /* AppDelegate.swift in Sources */,
 				28E301B2229C4FCC0024E0BD /* MainScreenViewController.swift in Sources */,
+				28E17741229D44790037ABDC /* CreatePollViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -58,7 +58,8 @@ class ViewController: UIViewController {
                     
                     let allDetails = [displayName, bitmojiAvatarUrl] as! Array<String>
                     DispatchQueue.main.async {
-                        self.performSegue(withIdentifier: "loginSegue", sender: allDetails)
+                        nameAndBitmojiArray = allDetails
+                        self.performSegue(withIdentifier: "loginSegue", sender: self)
                     }
                     
                 }, failure: { (error: Error?, isUserLoggedOut: Bool) in
@@ -67,7 +68,7 @@ class ViewController: UIViewController {
             }
         }
         
-        loginButton?.frame = CGRect(x: (self.view.frame.width/2)-(self.view.frame.width/3), y: ((self.view.frame.height/2)+300), width: (self.view.frame.width/1.5), height: 45)
+        loginButton?.frame = CGRect(x: (self.view.frame.width/2)-(self.view.frame.width/3), y: ((self.view.frame.height/2)+200), width: (self.view.frame.width/1.5), height: 45)
         loginButton!.center.x = self.view.center.x
         bg.frame = view.bounds
         view.addSubview(bg)
@@ -82,19 +83,9 @@ class ViewController: UIViewController {
         bg.start()
         
     }
-
-    override func viewDidLayoutSubviews() {
-    
-    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "loginSegue" {
-            if let destVc = segue.destination as? MainScreenViewController {
-                if let dets = sender as? Array<String> {
-                    destVc.nameAndBitmojiArray = dets
-                }
-            }
-        }
+       
     }
 
 }

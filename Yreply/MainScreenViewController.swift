@@ -11,15 +11,17 @@ import SCSDKBitmojiKit
 import SCSDKLoginKit
 import Pastel
 
+var nameAndBitmojiArray: Array<String>!
+
 class MainScreenViewController: UIViewController {
     
-    var nameAndBitmojiArray: Array<String>!
+    
     let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .heavy)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-       
+       self.navigationController?.isNavigationBarHidden = true
        
         
         
@@ -32,12 +34,7 @@ class MainScreenViewController: UIViewController {
     iconView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(bitmojiClicked)))
     view.addSubview(iconView)
     
-        // Do any additional setup after loading the view.
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        
-        let newButton = PastelView(frame:  CGRect(x: (self.view.frame.width/2)-(self.view.frame.width/3), y: ((self.view.frame.height/2)+300), width: (self.view.frame.width/1.25), height: 45))
+        let newButton = PastelView(frame:  CGRect(x: (self.view.frame.width/2)-(self.view.frame.width/3), y: ((self.view.frame.height/2)+200), width: (self.view.frame.width/1.25), height: 45))
         newButton.center.x = self.view.center.x
         newButton.startPastelPoint = .bottomLeft
         newButton.endPastelPoint = .topRight
@@ -45,24 +42,24 @@ class MainScreenViewController: UIViewController {
         newButton.startAnimation()
         newButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(buttonClicked)))
         newButton.setColors([UIColor(red: 8/255, green: 41/255, blue: 224/255, alpha: 1.0),
-                              UIColor(red: 8/255, green: 91/255, blue: 163/255, alpha: 1.0),
-                              UIColor(red: 8/255, green: 72/255, blue: 163/255, alpha: 1.0),
-                              UIColor(red: 8/255, green: 121/255, blue: 163/255, alpha: 1.0),
-                              UIColor(red: 8/255, green: 155/255, blue: 163/255, alpha: 1.0),
-                              UIColor(red: 8/255, green: 54/255, blue: 163/255, alpha: 1.0),
-                              UIColor(red: 8/255, green: 142/255, blue: 163/255, alpha: 1.0)])
-//        newButton.layer.cornerRadius = 8.0
-//        newButton.clipsToBounds = true
-//        newButton.layer.masksToBounds = false
+                             UIColor(red: 8/255, green: 91/255, blue: 163/255, alpha: 1.0),
+                             UIColor(red: 8/255, green: 72/255, blue: 163/255, alpha: 1.0),
+                             UIColor(red: 8/255, green: 121/255, blue: 163/255, alpha: 1.0),
+                             UIColor(red: 8/255, green: 155/255, blue: 163/255, alpha: 1.0),
+                             UIColor(red: 8/255, green: 54/255, blue: 163/255, alpha: 1.0),
+                             UIColor(red: 8/255, green: 142/255, blue: 163/255, alpha: 1.0)])
+        //        newButton.layer.cornerRadius = 8.0
+        //        newButton.clipsToBounds = true
+        //        newButton.layer.masksToBounds = false
         newButton.layer.shadowColor = UIColor.darkGray.cgColor
         newButton.layer.shadowOpacity = 1
         newButton.layer.shadowOffset = .zero
-        newButton.layer.shadowRadius = 10
+        newButton.layer.shadowRadius = 5
         newButton.layer.shadowPath = UIBezierPath(rect: newButton.bounds).cgPath
-
+        
         let text = UILabel(frame: CGRect(x: (newButton.frame.width/2) - (newButton.frame.width/3) , y: (newButton.frame.height/2) - (newButton.frame.height/3) + 7 , width: newButton.frame.width/1.5, height: 15))
         text.center.x = newButton.center.x
-       
+        
         
         
         text.text = "Create New Poll"
@@ -70,10 +67,19 @@ class MainScreenViewController: UIViewController {
         
         newButton.addSubview(text)
         view.insertSubview(newButton, at: 0)
+        // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+        
+       
     }
     
     @objc func buttonClicked() {
+        impactFeedbackgenerator.impactOccurred()
         
+        self.performSegue(withIdentifier: "createPollSegue", sender: self)
     }
     
     
@@ -97,6 +103,8 @@ class MainScreenViewController: UIViewController {
         
         self.present(alert, animated: true, completion: nil)
     }
+    
+   
     /*
     // MARK: - Navigation
 

@@ -33,12 +33,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <segue destination="Y6C-5b-q9H" kind="show" identifier="loginSegue" id="1ce-Hl-TKg"/>
+                        <segue destination="0k5-OP-LTZ" kind="show" identifier="loginSegue" id="ofo-vW-74V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="137.68115942028987" y="66.964285714285708"/>
+            <point key="canvasLocation" x="-142" y="67"/>
         </scene>
         <!--Main Screen View Controller-->
         <scene sceneID="8oM-lM-ugO">
@@ -47,22 +47,92 @@
                     <view key="view" contentMode="scaleToFill" id="vce-Ve-Be6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="new" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAx-Pd-xTe">
-                                <rect key="frame" x="191" y="438" width="32" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="fjZ-er-ziq"/>
                     </view>
+                    <navigationItem key="navigationItem" id="Yp1-pQ-z4A"/>
+                    <connections>
+                        <segue destination="EXf-Rc-BDs" kind="show" identifier="createPollSegue" id="Aj2-PF-Azm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFO-LV-y5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="67"/>
+            <point key="canvasLocation" x="1839.1304347826087" y="66.964285714285708"/>
+        </scene>
+        <!--What's Your Question?-->
+        <scene sceneID="cPX-27-yzG">
+            <objects>
+                <viewController id="EXf-Rc-BDs" customClass="CreatePollViewController" customModule="Yreply" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UV9-p3-XF6">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1K6-FN-c78">
+                                <rect key="frame" x="20" y="222" width="374" height="171"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObW-dS-xtm">
+                                        <rect key="frame" x="345" y="148.5" width="21" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="0.2388483713" green="0.73098429570000001" blue="0.1873235566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Ptv-KR-mgc" customClass="KMPlaceholderTextView" customModule="KMPlaceholderTextView">
+                                        <rect key="frame" x="4" y="21" width="366" height="106.5"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="20"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="done" smartDashesType="no" smartQuotesType="no"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="Enter Your Question Here - Remember to be nice!"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </textView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="ObW-dS-xtm" firstAttribute="top" secondItem="Ptv-KR-mgc" secondAttribute="bottom" constant="21" id="Rvu-IM-PFX"/>
+                                    <constraint firstAttribute="trailing" secondItem="ObW-dS-xtm" secondAttribute="trailing" constant="8" id="U1d-1m-e7G"/>
+                                    <constraint firstAttribute="bottom" secondItem="ObW-dS-xtm" secondAttribute="bottom" constant="1.5" id="XZI-EI-Vnl"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ptv-KR-mgc" secondAttribute="trailing" constant="4" id="Zcd-9O-Ef4"/>
+                                    <constraint firstItem="Ptv-KR-mgc" firstAttribute="leading" secondItem="1K6-FN-c78" secondAttribute="leading" constant="4" id="eYs-xu-5Z5"/>
+                                    <constraint firstItem="Ptv-KR-mgc" firstAttribute="top" secondItem="1K6-FN-c78" secondAttribute="top" constant="21" id="rQ7-vY-qfn"/>
+                                    <constraint firstAttribute="height" constant="171" id="shh-p3-JWt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1K6-FN-c78" firstAttribute="leading" secondItem="bNU-zP-Kuv" secondAttribute="leading" constant="20" id="9ud-qq-PCr"/>
+                            <constraint firstItem="bNU-zP-Kuv" firstAttribute="trailing" secondItem="1K6-FN-c78" secondAttribute="trailing" constant="20" id="O7S-lq-BqN"/>
+                            <constraint firstItem="1K6-FN-c78" firstAttribute="top" secondItem="bNU-zP-Kuv" secondAttribute="top" constant="82" id="ygD-0g-aBo"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bNU-zP-Kuv"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="What's Your Question?" id="lnN-ue-vTg"/>
+                    <connections>
+                        <outlet property="questionTextView" destination="Ptv-KR-mgc" id="sg3-KP-7ec"/>
+                        <outlet property="shadowView" destination="1K6-FN-c78" id="lZg-wK-VmG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a0a-8n-dDn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3000.0000000000005" y="66.964285714285708"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2ie-p8-Lai">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0k5-OP-LTZ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="cqP-ox-IdB">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Y6C-5b-q9H" kind="relationship" relationship="rootViewController" id="9WW-dy-12x"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZYy-kr-iTi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="928.98550724637687" y="66.964285714285708"/>
         </scene>
     </scenes>
 </document>
