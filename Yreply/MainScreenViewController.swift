@@ -13,16 +13,100 @@ import Pastel
 
 var nameAndBitmojiArray: Array<String>!
 
-class MainScreenViewController: UIViewController {
+class newCell : UITableViewCell {
+    override var frame: CGRect {
+        get {
+            return super.frame
+        }
+        set (newFrame) {
+            var frame = newFrame
+            frame.origin.x += 20
+            frame.size.width -= 2 * 20
+            super.frame = frame
+        }
+    }
+}
+
+class MainScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 9
+    }
     
+    // There is just one row in every section
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
     
+    // Set the spacing between sections
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 15
+    }
+    
+    // Make the background color show through
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        headerView.backgroundColor = UIColor.clear
+        return headerView
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! newCell
+        
+        cell.clipsToBounds = true
+        cell.layer.masksToBounds = false
+        cell.backgroundColor = .white
+        cell.layer.cornerRadius = 14
+        cell.layer.shadowColor = UIColor.darkGray.cgColor
+        cell.layer.shadowOffset = CGSize(width: 1, height: 1)
+        cell.layer.shadowRadius = 5
+        cell.layer.shadowOpacity = 1
+        
+//        cell.layer.borderColor = UIColor.black.cgColor
+//        cell.layer.borderWidth = 2
+//        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.layer.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 14, height: 14)).cgPath
+        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.layer.bounds, cornerRadius:         cell.layer.cornerRadius).cgPath
+//        cell.layer.shadowShouldRasterize = true
+//        cell.layer.shadowRasterizationScale = UIScreen.main.scale
+        
+        return cell
+    }
+    
+    struct UI {
+        static let itemHeight: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 88 : 65
+        static let lineSpacing: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 28 : 20
+        static let xInset: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 40 : 20
+        static let topInset: CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 40 : 28
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
+    }
+    
+    @IBOutlet weak var tableView: UITableView!
     let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .heavy)
+    
+    fileprivate var itemSize: CGSize {
+        let width = UIScreen.main.bounds.width - 2 * UI.xInset
+        return CGSize(width: width, height: UI.itemHeight)
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
        self.navigationController?.isNavigationBarHidden = true
-       
+        self.tableView.showsVerticalScrollIndicator = false
+        self.tableView.showsHorizontalScrollIndicator = false
+        self.tableView.bounces = true
+        self.tableView.backgroundColor = .white
+        self.tableView.contentInset.bottom = UI.itemHeight
+        self.tableView.backgroundColor = .clear
+        self.tableView.separatorColor = .clear
+        
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         
         
         impactFeedbackgenerator.prepare()
@@ -34,7 +118,7 @@ class MainScreenViewController: UIViewController {
     iconView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(bitmojiClicked)))
     view.addSubview(iconView)
     
-        let newButton = PastelView(frame:  CGRect(x: (self.view.frame.width/2)-(self.view.frame.width/3), y: ((self.view.frame.height/2)+200), width: (self.view.frame.width/1.25), height: 45))
+        let newButton = PastelView(frame:  CGRect(x: (self.view.frame.width/2)-(self.view.frame.width/3), y: (self.view.frame.height - 150), width: (self.view.frame.width/1.25), height: 45))
         newButton.center.x = self.view.center.x
         newButton.startPastelPoint = .bottomLeft
         newButton.endPastelPoint = .topRight
@@ -74,9 +158,14 @@ class MainScreenViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         self.navigationController?.isNavigationBarHidden = true
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
         
        
     }
+   
+   
     
     @objc func buttonClicked() {
         impactFeedbackgenerator.impactOccurred()

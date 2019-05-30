@@ -174,6 +174,9 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         optionOne.becomeFirstResponder()
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+    }
+    
     override func viewDidLayoutSubviews() {
         textFieldView.layer.cornerRadius = 12.0
         let shadowPath = UIBezierPath(roundedRect: textFieldView.bounds, cornerRadius: textFieldView.layer.cornerRadius)
