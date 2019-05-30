@@ -13,6 +13,7 @@ import Firebase
 
 var extImp = ""
 var bitmojiImage : UIImage = UIImage()
+var loadPollFromThis : NSDictionary = NSDictionary()
 
 class ViewController: UIViewController {
     
@@ -50,7 +51,15 @@ class ViewController: UIViewController {
                         
                         self.ref.child("users").child(externalId!.replacingOccurrences(of: "/", with: "")).setValue(["displayName" : displayName ?? "Default", "bitmojiId" : bitmojiAvatarUrl ?? "NA"])
 
-
+                        DispatchQueue.main.async {
+                            self.ref.child("polls").child(extImp).observeSingleEvent(of: .value, with: { (snapshot) in
+                                let value = snapshot.value as? NSDictionary
+                                loadPollFromThis = value ?? ["rekt" : "rekt"]
+                               
+                                
+                               // print(value)
+                            })
+                        }
 
                         Auth.auth().createUser(withEmail: externalId! + "@yreply.me", password: "hello123", completion: { (data, error) in
                             if error != nil {

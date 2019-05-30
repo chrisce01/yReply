@@ -83,6 +83,10 @@
                                                 <constraint firstAttribute="bottom" secondItem="6tK-F7-OZ7" secondAttribute="bottom" constant="4" id="yGd-VP-Rfd"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="qLabelLoad" destination="dbT-Rs-acd" id="LME-Tf-mGK"/>
+                                            <outlet property="voteLabelLoad" destination="6tK-F7-OZ7" id="LWL-wX-Dsv"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>

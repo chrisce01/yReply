@@ -14,6 +14,8 @@ import Pastel
 var nameAndBitmojiArray: Array<String>!
 
 class newCell : UITableViewCell {
+    @IBOutlet weak var qLabelLoad: UILabel!
+    @IBOutlet weak var voteLabelLoad: UILabel!
     override var frame: CGRect {
         get {
             return super.frame
@@ -29,9 +31,13 @@ class newCell : UITableViewCell {
 
 class MainScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 9
+        return loadPollFromThis.count
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        
+    }
     // There is just one row in every section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 1
@@ -65,6 +71,22 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
 //        cell.layer.borderWidth = 2
 //        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.layer.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 14, height: 14)).cgPath
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.layer.bounds, cornerRadius:         cell.layer.cornerRadius).cgPath
+        
+        
+        let keys = loadPollFromThis.allKeys as! Array<String>
+        let poll = loadPollFromThis[keys[indexPath.section]] as? NSDictionary
+        cell.qLabelLoad.text = poll?["question"] as? String
+        let choices = poll?["choices"] as? NSArray
+        var totalVotes = 0
+        for i in 0...choices!.count - 1{
+            let innerVal = choices?[i] as? NSDictionary
+            totalVotes += innerVal?["votes"] as! Int
+            
+        }
+        
+        cell.voteLabelLoad.text = "Number of Votes: \(totalVotes)"
+       // print("ARRE \(choices?.count)")
+        
 //        cell.layer.shadowShouldRasterize = true
 //        cell.layer.shadowRasterizationScale = UIScreen.main.scale
         
@@ -162,7 +184,7 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
             self.tableView.reloadData()
         }
         
-       
+       self.tableView.reloadData()
     }
    
    
