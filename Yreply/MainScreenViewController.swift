@@ -41,16 +41,18 @@ class MainScreenViewController: UIViewController {
         newButton.animationDuration = 0.5
         newButton.startAnimation()
         newButton.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(buttonClicked)))
-        newButton.setColors([UIColor(red: 8/255, green: 41/255, blue: 224/255, alpha: 1.0),
-                             UIColor(red: 8/255, green: 91/255, blue: 163/255, alpha: 1.0),
-                             UIColor(red: 8/255, green: 72/255, blue: 163/255, alpha: 1.0),
-                             UIColor(red: 8/255, green: 121/255, blue: 163/255, alpha: 1.0),
-                             UIColor(red: 8/255, green: 155/255, blue: 163/255, alpha: 1.0),
-                             UIColor(red: 8/255, green: 54/255, blue: 163/255, alpha: 1.0),
-                             UIColor(red: 8/255, green: 142/255, blue: 163/255, alpha: 1.0)])
+//        newButton.setColors([UIColor(red: 8/255, green: 41/255, blue: 224/255, alpha: 1.0),
+//                             UIColor(red: 8/255, green: 91/255, blue: 163/255, alpha: 1.0),
+//                             UIColor(red: 8/255, green: 72/255, blue: 163/255, alpha: 1.0),
+//                             UIColor(red: 8/255, green: 121/255, blue: 163/255, alpha: 1.0),
+//                             UIColor(red: 8/255, green: 155/255, blue: 163/255, alpha: 1.0),
+//                             UIColor(red: 8/255, green: 54/255, blue: 163/255, alpha: 1.0),
+//                             UIColor(red: 8/255, green: 142/255, blue: 163/255, alpha: 1.0)])
+        
         //        newButton.layer.cornerRadius = 8.0
         //        newButton.clipsToBounds = true
         //        newButton.layer.masksToBounds = false
+        newButton.setPastelGradient(.ariellesSmile)
         newButton.layer.shadowColor = UIColor.darkGray.cgColor
         newButton.layer.shadowOpacity = 1
         newButton.layer.shadowOffset = .zero

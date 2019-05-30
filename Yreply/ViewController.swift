@@ -11,6 +11,8 @@ import SCSDKLoginKit
 import Cheers
 import Firebase
 
+var extImp = ""
+var bitmojiImage : UIImage = UIImage()
 
 class ViewController: UIViewController {
     
@@ -39,20 +41,25 @@ class ViewController: UIViewController {
                         let me = data["me"] as? [String: Any] else { return }
                         let externalId = me["externalId"] as? String
                     let displayName = me["displayName"] as? String
+                    extImp = "\(externalId!.replacingOccurrences(of: "/", with: ""))"
                     var bitmojiAvatarUrl: String?
                     if let bitmoji = me["bitmoji"] as? [String: Any] {
                         bitmojiAvatarUrl = bitmoji["avatar"] as? String
                         
                         // Essential to remove slashes from external id so that firebase doesn't make child after every slash
                         
-                        self.ref.child("users").child(externalId!.replacingOccurrences(of: "/", with: "")).setValue(["displayName" : displayName!, "bitmojiId" : bitmojiAvatarUrl ?? "NA"])
-                       
+                        self.ref.child("users").child(externalId!.replacingOccurrences(of: "/", with: "")).setValue(["displayName" : displayName ?? "Default", "bitmojiId" : bitmojiAvatarUrl ?? "NA"])
+
 
 
                         Auth.auth().createUser(withEmail: externalId! + "@yreply.me", password: "hello123", completion: { (data, error) in
                             if error != nil {
                             }
                         })
+                        
+                        let url = bitmojiAvatarUrl
+                        self.downloadImage(from: URL(string: url!)!)
+                        
                     }
                     
                     
@@ -63,7 +70,7 @@ class ViewController: UIViewController {
                     }
                     
                 }, failure: { (error: Error?, isUserLoggedOut: Bool) in
-                    // handle error
+                   
                 })
             }
         }
@@ -87,6 +94,25 @@ class ViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
        
     }
+    
+    
+    func downloadImage(from url: URL) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() {
+                bitmojiImage = UIImage(data: data)!
+            }
+        }
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
 
+    
+    
 }
 

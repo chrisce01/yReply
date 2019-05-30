@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		1A0CF5A2E66BFC9756B2A8B8 /* Pods_YreplyUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7347C8D27BA9BA86F09739FC /* Pods_YreplyUITests.framework */; };
+		28082202229F0C6400B4F54E /* three.png in Resources */ = {isa = PBXBuildFile; fileRef = 280821FF229F0C6300B4F54E /* three.png */; };
+		28082203229F0C6400B4F54E /* four.png in Resources */ = {isa = PBXBuildFile; fileRef = 28082200229F0C6300B4F54E /* four.png */; };
+		284BBB5B229ED01300216278 /* FinalPollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284BBB5A229ED01300216278 /* FinalPollViewController.swift */; };
+		2866A909229FEFA00061CE82 /* Allerta.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2866A908229FEFA00061CE82 /* Allerta.ttf */; };
+		28C6E94D229DAEB2004DD590 /* OptionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28C6E94C229DAEB2004DD590 /* OptionsViewController.swift */; };
 		28E17741229D44790037ABDC /* CreatePollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E17740229D44790037ABDC /* CreatePollViewController.swift */; };
 		28E3017A229C03720024E0BD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E30179229C03720024E0BD /* AppDelegate.swift */; };
 		28E3017C229C03720024E0BD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28E3017B229C03720024E0BD /* ViewController.swift */; };
@@ -41,6 +46,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		280821FF229F0C6300B4F54E /* three.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = three.png; sourceTree = "<group>"; };
+		28082200229F0C6300B4F54E /* four.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = four.png; sourceTree = "<group>"; };
+		284BBB5A229ED01300216278 /* FinalPollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalPollViewController.swift; sourceTree = "<group>"; };
+		2866A907229FEDBF0061CE82 /* Allerta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Allerta.ttf; sourceTree = "<group>"; };
+		2866A908229FEFA00061CE82 /* Allerta.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Allerta.ttf; sourceTree = "<group>"; };
+		28C6E94C229DAEB2004DD590 /* OptionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionsViewController.swift; sourceTree = "<group>"; };
 		28E17740229D44790037ABDC /* CreatePollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePollViewController.swift; sourceTree = "<group>"; };
 		28E30176229C03720024E0BD /* Yreply.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yreply.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28E30179229C03720024E0BD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +113,7 @@
 		28E3016D229C03720024E0BD = {
 			isa = PBXGroup;
 			children = (
+				2866A908229FEFA00061CE82 /* Allerta.ttf */,
 				28E30178229C03720024E0BD /* Yreply */,
 				28E3018D229C03740024E0BD /* YreplyTests */,
 				28E30198229C03740024E0BD /* YreplyUITests */,
@@ -128,13 +140,18 @@
 				28E30179229C03720024E0BD /* AppDelegate.swift */,
 				28E3017B229C03720024E0BD /* ViewController.swift */,
 				28E3017D229C03720024E0BD /* Main.storyboard */,
+				284BBB5A229ED01300216278 /* FinalPollViewController.swift */,
+				28C6E94C229DAEB2004DD590 /* OptionsViewController.swift */,
 				28E17740229D44790037ABDC /* CreatePollViewController.swift */,
 				28E301B1229C4FCC0024E0BD /* MainScreenViewController.swift */,
+				2866A907229FEDBF0061CE82 /* Allerta.ttf */,
 				28E30180229C03740024E0BD /* Assets.xcassets */,
 				28E30182229C03740024E0BD /* LaunchScreen.storyboard */,
 				28E30185229C03740024E0BD /* Info.plist */,
 				28E301AE229C36220024E0BD /* qmark1.png */,
 				28E301B3229C6E660024E0BD /* GoogleService-Info.plist */,
+				28082200229F0C6300B4F54E /* four.png */,
+				280821FF229F0C6300B4F54E /* three.png */,
 			);
 			path = Yreply;
 			sourceTree = "<group>";
@@ -297,11 +314,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2866A909229FEFA00061CE82 /* Allerta.ttf in Resources */,
 				28E30184229C03740024E0BD /* LaunchScreen.storyboard in Resources */,
+				28082202229F0C6400B4F54E /* three.png in Resources */,
 				28E30181229C03740024E0BD /* Assets.xcassets in Resources */,
 				28E301B4229C6E660024E0BD /* GoogleService-Info.plist in Resources */,
 				28E3017F229C03720024E0BD /* Main.storyboard in Resources */,
 				28E301B0229C36220024E0BD /* qmark1.png in Resources */,
+				28082203229F0C6400B4F54E /* four.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -427,10 +447,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				284BBB5B229ED01300216278 /* FinalPollViewController.swift in Sources */,
 				28E3017C229C03720024E0BD /* ViewController.swift in Sources */,
 				28E3017A229C03720024E0BD /* AppDelegate.swift in Sources */,
 				28E301B2229C4FCC0024E0BD /* MainScreenViewController.swift in Sources */,
 				28E17741229D44790037ABDC /* CreatePollViewController.swift in Sources */,
+				28C6E94D229DAEB2004DD590 /* OptionsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -613,6 +635,7 @@
 					"$(PROJECT_DIR)/Pods/SnapSDK",
 				);
 				INFOPLIST_FILE = Yreply/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -620,7 +643,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.akshatjagga.Yreply;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -636,6 +659,7 @@
 					"$(PROJECT_DIR)/Pods/SnapSDK",
 				);
 				INFOPLIST_FILE = Yreply/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -643,7 +667,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.akshatjagga.Yreply;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
