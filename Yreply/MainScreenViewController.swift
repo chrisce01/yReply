@@ -10,6 +10,7 @@ import UIKit
 import SCSDKBitmojiKit
 import SCSDKLoginKit
 import Pastel
+import Firebase
 
 var nameAndBitmojiArray: Array<String>!
 
@@ -30,13 +31,29 @@ class newCell : UITableViewCell {
 }
 
 class MainScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var ref: DatabaseReference!
+    
     func numberOfSections(in tableView: UITableView) -> Int {
+        
         return loadPollFromThis.count
-    }
+        }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         let keys = loadPollFromThis.allKeys as! Array<String>
+        let poll = loadPollFromThis[keys[indexPath.section]] as? NSDictionary
+        self.performSegue(withIdentifier: "pollResultSegue", sender: poll)
         
-        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "pollResultSegue" {
+            if let dest = segue.destination as? PollResultViewController{
+                if let dets = sender as? NSDictionary{
+                    dest.resultLoad = dets
+                }
+            }
+        }
     }
     // There is just one row in every section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,14 +92,21 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         
         let keys = loadPollFromThis.allKeys as! Array<String>
         let poll = loadPollFromThis[keys[indexPath.section]] as? NSDictionary
+        
         cell.qLabelLoad.text = poll?["question"] as? String
         let choices = poll?["choices"] as? NSArray
         var totalVotes = 0
-        for i in 0...choices!.count - 1{
-            let innerVal = choices?[i] as? NSDictionary
-            totalVotes += innerVal?["votes"] as! Int
-            
+        if let c = choices?.count {
+            for i in 0...c - 1 {
+                let innerVal = choices?[i] as? NSDictionary
+                totalVotes += innerVal?["votes"] as! Int
+            }
         }
+        
+//        for i in 0...choices?.count ?? 1 - 1{
+//
+//
+//        }
         
         cell.voteLabelLoad.text = "Number of Votes: \(totalVotes)"
        // print("ARRE \(choices?.count)")
@@ -117,6 +141,8 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        ref = Database.database().reference()
+        
        self.navigationController?.isNavigationBarHidden = true
         self.tableView.showsVerticalScrollIndicator = false
         self.tableView.showsHorizontalScrollIndicator = false
@@ -127,6 +153,14 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.separatorColor = .clear
         
         DispatchQueue.main.async {
+                self.ref.child("polls").child(extImp).observeSingleEvent(of: .value, with: { (snapshot) in
+                    let value = snapshot.value as? NSDictionary
+                    loadPollFromThis = value ?? [:]
+                    
+                    
+                    // print(value)
+                })
+            
             self.tableView.reloadData()
         }
         

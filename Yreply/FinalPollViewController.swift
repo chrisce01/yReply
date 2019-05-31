@@ -94,7 +94,7 @@ class FinalPollViewController: UIViewController {
         
        //let roundedImage = makeRoundedImage(image: image, radius: 20.0)
         
-        let newImage = textToImageForTwoOptions(qText: pollQDetails["question"] as! NSString, drawText: choice1Details["value"] as! NSString, drawText2: choice2Details["value"]! as! NSString, inImage: image, atPoint: CGPoint(x: 57, y: 98), atPoint2: CGPoint(x: 57, y: 164), qPoint: CGPoint(x: 80, y: 26))//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 320, height: 280))
+        let newImage = textToImageForTwoOptions(qText: pollQDetails["question"] as! NSString, drawText: choice1Details["value"] as! NSString, drawText2: choice2Details["value"]! as! NSString, inImage: image, atPoint: CGPoint(x: 57, y: 98), atPoint2: CGPoint(x: 57, y: 164), qPoint: CGPoint(x: 50, y: 26))//        let label = UILabel(frame: CGRect(x: 0, y: 0, width: 320, height: 280))
 //        label.backgroundColor = UIColor.clear
 //        label.textAlignment = .center
 //        label.textColor = UIColor.black
