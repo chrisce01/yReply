@@ -8,10 +8,13 @@ pod 'SnapSDK'
 pod 'SnapSDK', :subspecs => ['SCSDKLoginKit', 'SCSDKCreativeKit', 'SCSDKBitmojiKit']
 pod 'Cheers'
 pod 'Firebase/Core'
+pod 'Firebase/Messaging'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 pod "Pastel"
 pod 'KMPlaceholderTextView'
+pod 'SwiftOverlays', '~> 5.0.1'
+
 
   # Pods for Yreply
 

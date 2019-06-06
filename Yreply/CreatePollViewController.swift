@@ -15,13 +15,21 @@ var choice2Details = ["value": "", "votes" : 42, "pollId" : "", "externalId": ""
 var choice3Details = ["value": "", "votes" : 42, "pollId" : "", "externalId": ""] as [String : Any]
 var choice4Details = ["value": "", "votes" : 42, "pollId": "", "externalId": ""] as [String : Any]
 
-class CreatePollViewController: UIViewController {
+class CreatePollViewController: UIViewController, UITextViewDelegate {
+    
+    @IBOutlet weak var characterLabel: UILabel!
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        characterLabel.text = String(35 - (textView.text.count + (text.count - range.length)))
+        return textView.text.count + (text.count - range.length) <= 35
+    }
+    
     let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .heavy)
     
     @IBOutlet weak var questionTextView: UITextView!
     @IBOutlet weak var shadowView: UIView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        questionTextView.delegate = self
         impactFeedbackgenerator.prepare()
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
 

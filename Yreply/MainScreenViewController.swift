@@ -11,8 +11,13 @@ import SCSDKBitmojiKit
 import SCSDKLoginKit
 import Pastel
 import Firebase
+import SafariServices
+import SwiftOverlays
 
 var nameAndBitmojiArray: Array<String>!
+
+var listOfPolls = [Polls]()
+
 
 class newCell : UITableViewCell {
     @IBOutlet weak var qLabelLoad: UILabel!
@@ -33,15 +38,15 @@ class newCell : UITableViewCell {
 class MainScreenViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var ref: DatabaseReference!
-    
+    var refreshControl = UIRefreshControl()
+
     func numberOfSections(in tableView: UITableView) -> Int {
         
-        return loadPollFromThis.count
+        return listOfPolls.count
         }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-         let keys = loadPollFromThis.allKeys as! Array<String>
-        let poll = loadPollFromThis[keys[indexPath.section]] as? NSDictionary
+        let poll = listOfPolls[indexPath.section] as? Polls
         self.performSegue(withIdentifier: "pollResultSegue", sender: poll)
         
     }
@@ -49,7 +54,7 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "pollResultSegue" {
             if let dest = segue.destination as? PollResultViewController{
-                if let dets = sender as? NSDictionary{
+                if let dets = sender as? Polls{
                     dest.resultLoad = dets
                 }
             }
@@ -90,11 +95,23 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.layer.bounds, cornerRadius:         cell.layer.cornerRadius).cgPath
         
         
-        let keys = loadPollFromThis.allKeys as! Array<String>
-        let poll = loadPollFromThis[keys[indexPath.section]] as? NSDictionary
+//        let keys = loadPollFromThis.allKeys as! Array<String>
+        //let poll = loadPollFromThis[keys[indexPath.section]] as? NSDictionary
+//        let poll = loadPollFromThis[indexPath.section] as? NSDictionary
+        listOfPolls.sort(by: {$0.timeStamp > $1.timeStamp})
         
-        cell.qLabelLoad.text = poll?["question"] as? String
-        let choices = poll?["choices"] as? NSArray
+        let poll = listOfPolls[indexPath.section]
+        
+//        print(loadPollFromThis)
+//        var new = [Polls]()
+//        for arrayIndex in stride(from: listOfPolls.count - 1, through: 0, by: -1) {
+//            new.append(listOfPolls[arrayIndex])
+//        }
+//        listOfPolls = new
+//        cell.qLabelLoad.text = poll?["question"] as? String
+        let choices = poll.choices as? NSArray
+        
+        cell.qLabelLoad.text = poll.question
         var totalVotes = 0
         if let c = choices?.count {
             for i in 0...c - 1 {
@@ -102,11 +119,6 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
                 totalVotes += innerVal?["votes"] as! Int
             }
         }
-        
-//        for i in 0...choices?.count ?? 1 - 1{
-//
-//
-//        }
         
         cell.voteLabelLoad.text = "Number of Votes: \(totalVotes)"
        // print("ARRE \(choices?.count)")
@@ -136,10 +148,58 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         return CGSize(width: width, height: UI.itemHeight)
     }
     
+    @objc func refresh() {
+        DispatchQueue.main.async {
+            self.ref.child("polls").child(extImp).queryOrdered(byChild: "timeStamp").observe(.childAdded, with: { (snapshot) in
+                let value = snapshot.value as? NSDictionary
+                let randPoll = Polls.init(id: snapshot.key, q: value?["question"] as! String, choices: value?["choices"] as? NSArray ?? [0,1,2], time: value?["timeStamp"] as! Int64)
+                var append = true
+                
+                
+                
+                if randPoll.choices != [0,1,2] {
+                    for i in listOfPolls{
+                        if i.pollId == randPoll.pollId {
+                            append = false
+                            i.choices = randPoll.choices
+                            self.tableView.reloadData()
+                        }
+                        
+                    }
+                    
+                    if append == true{
+                        
+                        listOfPolls.append(randPoll)
+                    }
+                }
+               
+            })
+            self.dispatchDelay(delay: 2.0, closure: {
+                self.refreshControl.endRefreshing()
+            })
+            
+            self.tableView.reloadData()
+        }}
     
+    func dispatchDelay(delay:Double, closure:@escaping ()->()) {
+        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + delay, execute: closure)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        DispatchQueue.main.async {
+            self.showWaitOverlay()
+
+        }
+        dispatchDelay(delay: 3.0) {
+            self.tableView.reloadData()
+        }
+        
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(refresh), for: UIControl.Event.valueChanged)
+        
+        tableView.addSubview(refreshControl)
         
         ref = Database.database().reference()
         
@@ -153,18 +213,77 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         self.tableView.separatorColor = .clear
         
         DispatchQueue.main.async {
-                self.ref.child("polls").child(extImp).observeSingleEvent(of: .value, with: { (snapshot) in
-                    let value = snapshot.value as? NSDictionary
-                    loadPollFromThis = value ?? [:]
+            
+            
+            let graphQLQuery = "{me{displayName, bitmoji{avatar}, externalId}}"
+            
+            let variables = ["page": "bitmoji"]
+            
+            //            })
+            SCSDKLoginClient.fetchUserData(withQuery: graphQLQuery, variables: variables, success: { (resources: [AnyHashable: Any]?) in
+                guard let resources = resources,
+                    let data = resources["data"] as? [String: Any],
+                    let me = data["me"] as? [String: Any] else { return }
+                let externalId = me["externalId"] as? String
+                let displayName = me["displayName"] as? String
+                print(me)
+                extImp = "\(externalId!.replacingOccurrences(of: "/", with: ""))"
+                var bitmojiAvatarUrl: String?
+                
+                
+                
+                if let bitmoji = me["bitmoji"] as? [String: Any] {
+                    bitmojiAvatarUrl = bitmoji["avatar"] as? String
+                    
+                    let allDetails = [displayName, bitmojiAvatarUrl] as? Array<String>
+                    nameAndBitmojiArray = allDetails
+
+                    
+                    // Essential to remove slashes from external id so that firebase doesn't make child after every slash
+                    
+                    //                        self.ref.child("users").child(externalId!.replacingOccurrences(of: "/", with: "")).setValue(["displayName" : displayName ?? "Default", "bitmojiId" : bitmojiAvatarUrl ?? "NA"])
+                    
+                    let url = bitmojiAvatarUrl
                     
                     
-                    // print(value)
-                })
+                    self.ref.child("polls").child(extImp).queryOrdered(byChild: "timeStamp").observe(.childAdded, with: { (snapshot) in
+                        let value = snapshot.value as? NSDictionary
+                        let randPoll = Polls.init(id: snapshot.key, q: value?["question"] as! String, choices: value?["choices"] as? NSArray ?? [0,1,2], time: value?["timeStamp"] as! Int64)
+                        var append = true
+                        if randPoll.choices != [0,1,2] {
+                            for i in listOfPolls{
+                                if i.pollId == randPoll.pollId {
+                                    append = false
+                                }
+                                
+                            }
+                            
+                            if append == true{
+                                listOfPolls.append(randPoll)
+                                self.tableView.reloadData()
+                            }
+                        }
+                    })
+                    DispatchQueue.main.async {
+                        self.removeAllOverlays()
+
+                    }
+                    self.downloadImage(from: URL(string: url!)!)
+                    //first download extImp then qyer
+                }
+                
+                
+                
+            }, failure: { (error: Error?, isUserLoggedOut: Bool) in
+                
+            })
+            
+            
+         
             
             self.tableView.reloadData()
         }
-        
-        
+        self.tableView.reloadData()
         impactFeedbackgenerator.prepare()
         let iconView = SCSDKBitmojiIconView()
         if let isArray = nameAndBitmojiArray {
@@ -216,12 +335,16 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         self.navigationController?.isNavigationBarHidden = true
         DispatchQueue.main.async {
             self.tableView.reloadData()
+            UserDefaults.standard.set(true, forKey: "loggedIn")
+            UserDefaults.standard.synchronize()
+
+
         }
         
        self.tableView.reloadData()
     }
    
-   
+
     
     @objc func buttonClicked() {
         impactFeedbackgenerator.impactOccurred()
@@ -229,18 +352,35 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         self.performSegue(withIdentifier: "createPollSegue", sender: self)
     }
     
-    
     @objc func bitmojiClicked() {
         impactFeedbackgenerator.impactOccurred()
-        let alert = UIAlertController(title: nameAndBitmojiArray[0], message: "", preferredStyle: .actionSheet)
+        let alert = UIAlertController(title: nameAndBitmojiArray?[0] ?? "Menu", message: "", preferredStyle: .actionSheet)
         
         alert.addAction(UIAlertAction(title: "Contact Us", style: .default , handler:{ (UIAlertAction)in
+             let url = URL(string: "https://docs.google.com/forms/d/e/1FAIpQLScHgHZ9K7O3ccBmhu95rA6mBc5x2FJV-cn-qh2WUIqMpNQK7g/viewform")
+            let safariVC = SFSafariViewController(url: url!)
+            self.present(safariVC, animated: true, completion: nil)
+           
+            
+
         }))
         
         alert.addAction(UIAlertAction(title: "Logout", style: .destructive , handler:{ (UIAlertAction)in
+            DispatchQueue.main.async {
+                self.ref.child("users").child(extImp).updateChildValues(["fcmToken" : "User Signed Out"])
+                self.showWaitOverlay()
+            }
+            
             SCSDKLoginClient.unlinkCurrentSession { (success: Bool) in
                 if success == true {
-                    self.dismiss(animated: true, completion: nil)
+                   // self.dismiss(animated: true, completion: nil)
+                    DispatchQueue.main.async {
+                        self.removeAllOverlays()
+                        
+                    UserDefaults.standard.set(false, forKey: "loggedIn")
+                    self.performSegue(withIdentifier: "backToLogin", sender: self)
+                    }
+                    
                 }
             }
         }))
@@ -262,4 +402,21 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     */
 
+    func downloadImage(from url: URL) {
+        print("Download Started")
+        getData(from: url) { data, response, error in
+            guard let data = data, error == nil else { return }
+            print(response?.suggestedFilename ?? url.lastPathComponent)
+            print("Download Finished")
+            DispatchQueue.main.async() {
+                bitmojiImage = UIImage(data: data)!
+            }
+        }
+    }
+    
+    func getData(from url: URL, completion: @escaping (Data?, URLResponse?, Error?) -> ()) {
+        URLSession.shared.dataTask(with: url, completionHandler: completion).resume()
+    }
+
+    
 }

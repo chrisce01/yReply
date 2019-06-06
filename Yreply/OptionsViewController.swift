@@ -10,6 +10,8 @@ import UIKit
 import Pastel
 import Firebase
 
+var numOpt = 2
+
 class OptionsViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var optionOne: UITextField!
@@ -17,11 +19,13 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var optionTwo: UITextField!
     @IBOutlet weak var optionThree: UITextField!
     @IBOutlet weak var optionFour: UITextField!
-    
+    let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .heavy)
     var ref: DatabaseReference!
     
     override func viewDidLoad() {
+        numOpt = 2
         super.viewDidLoad()
+        impactFeedbackgenerator.prepare()
         self.navigationController?.isNavigationBarHidden = false
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
         
@@ -88,6 +92,9 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func continueClicked() {
+        
+        impactFeedbackgenerator.impactOccurred()
+        
         if optionOne.text?.isEmpty == true || optionTwo.text?.isEmpty == true {
             if optionOne.text?.isEmpty == true{
                 optionOne.placeholder = "Please fill in this field"
@@ -129,12 +136,18 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
             
           
             
-            self.ref.child("polls").child(extImp).child("\(pollQDetails["id"]!)").setValue(["question": pollQDetails["question"]])
+            self.ref.child("polls").child(extImp).child("\(pollQDetails["id"]!)").setValue(["question": pollQDetails["question"], "timeStamp" : Date().ticks])
+            
             self.ref.child("polls").child(extImp).child("\(pollQDetails["id"]!)").child("choices").child("0").setValue(["value": choice1Details["value"], "votes" : choice1Details["votes"], "pollId" : choice1Details["pollId"], "externalId" : choice1Details["externalId"]])
                 self.ref.child("polls").child(extImp).child("\(pollQDetails["id"]!)").child("choices").child("1").setValue(["value": choice2Details["value"], "votes" : choice2Details["votes"], "pollId" : choice2Details["pollId"], "externalId" : choice2Details["externalId"]])
             
-                    self.ref.child("polls").child(extImp).child("\(pollQDetails["id"]!)").child("choices").child("2").setValue(["value": choice3Details["value"], "votes" : choice3Details["votes"], "pollId" : choice3Details["pollId"], "externalId" : choice3Details["externalId"]])
-                        self.ref.child("polls").child(extImp).child("\(pollQDetails["id"]!)").child("choices").child("3").setValue(["value": choice4Details["value"], "votes" : choice4Details["votes"], "pollId" : choice4Details["pollId"], "externalId" : choice4Details["externalId"]])
+            if optionThree.text?.isEmpty == false{ self.ref.child("polls").child(extImp).child("\(pollQDetails["id"]!)").child("choices").child("2").setValue(["value": choice3Details["value"], "votes" : choice3Details["votes"], "pollId" : choice3Details["pollId"], "externalId" : choice3Details["externalId"]])
+                numOpt = 3
+            }
+            if optionFour.text?.isEmpty == false { self.ref.child("polls").child(extImp).child("\(pollQDetails["id"]!)").child("choices").child("3").setValue(["value": choice4Details["value"], "votes" : choice4Details["votes"], "pollId" : choice4Details["pollId"], "externalId" : choice4Details["externalId"]])
+                numOpt = 4
+            
+            }
             performSegue(withIdentifier: "finalPollSegue", sender: self)
         }
         
@@ -200,4 +213,9 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
     }
     */
 
+}
+extension Date {
+    var ticks: UInt64 {
+        return UInt64((self.timeIntervalSince1970 + 62_135_596_800) * 10_000_000)
+    }
 }

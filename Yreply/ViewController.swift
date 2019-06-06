@@ -25,6 +25,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+
+        UserDefaults.standard.set(false, forKey: "loggedIn")
+        UserDefaults.standard.synchronize()
+
         ref = Database.database().reference()
         let loginButton = SCSDKLoginButton() { (success : Bool, error : Error?) in
             // do something
@@ -49,10 +53,9 @@ class ViewController: UIViewController {
                         
                         // Essential to remove slashes from external id so that firebase doesn't make child after every slash
                         
-                        self.ref.child("users").child(externalId!.replacingOccurrences(of: "/", with: "")).setValue(["displayName" : displayName ?? "Default", "bitmojiId" : bitmojiAvatarUrl ?? "NA"])
+                        self.ref.child("users").child(externalId!.replacingOccurrences(of: "/", with: "")).setValue(["displayName" : displayName ?? "Default", "bitmojiId" : bitmojiAvatarUrl ?? "NA", "fcmToken" : tokenUpload])
 
-                      
-
+                        
                         Auth.auth().createUser(withEmail: externalId! + "@yreply.me", password: "hello123", completion: { (data, error) in
                             if error != nil {
                             }
@@ -62,9 +65,9 @@ class ViewController: UIViewController {
                         self.downloadImage(from: URL(string: url!)!)
                         
                     }
+                    UserDefaults.standard.set(true, forKey: "loggedIn")
                     
-                    
-                    let allDetails = [displayName, bitmojiAvatarUrl] as! Array<String>
+                    let allDetails = [displayName, bitmojiAvatarUrl] as? Array<String>
                     DispatchQueue.main.async {
                         nameAndBitmojiArray = allDetails
                         self.performSegue(withIdentifier: "loginSegue", sender: self)
@@ -114,6 +117,19 @@ class ViewController: UIViewController {
     }
 
     
-    
+    override func viewDidAppear(_ animated: Bool) {
+        UserDefaults.standard.set(false, forKey: "loggedIn")
+        UserDefaults.standard.synchronize()
+        bg.frame = view.bounds
+        view.addSubview(bg)
+        
+        bg.config.particle = .image([image1!])
+        bg.config.customize = { cells in
+            
+            for i in cells {
+                i.birthRate = 2
+            }
+        self.bg.start()
+        }}
 }
 

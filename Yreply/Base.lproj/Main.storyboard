@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0k5-OP-LTZ">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,7 +18,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Yreply" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="viewVC" id="BYZ-38-t0r" customClass="ViewController" customModule="Yreply" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -114,6 +114,7 @@
                         <outlet property="tableView" destination="4XY-9x-i0A" id="f5D-S6-9gD"/>
                         <segue destination="EXf-Rc-BDs" kind="show" identifier="createPollSegue" id="Aj2-PF-Azm"/>
                         <segue destination="wuJ-0H-kPr" kind="show" identifier="pollResultSegue" id="x3j-q9-dHv"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="backToLogin" id="GSS-rx-qvT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hFO-LV-y5J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -279,7 +280,7 @@
                                         <real key="value" value="20"/>
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="number" keyPath="endPointX">
-                                        <real key="value" value="1.1000000000000001"/>
+                                        <real key="value" value="1"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -413,11 +414,13 @@
                         <outlet property="answerFourView" destination="dVu-0M-uuK" id="z3z-7q-EAW"/>
                         <outlet property="answerFourVotes" destination="aIc-vv-T4y" id="Rga-3l-ksu"/>
                         <outlet property="answerOneLabel" destination="1Qe-i4-3jl" id="0Om-XC-Dqg"/>
+                        <outlet property="answerOneView" destination="fNO-gs-SuJ" id="LTj-wK-Gcq"/>
                         <outlet property="answerOneVotes" destination="W8x-cx-Y6U" id="a1F-Uo-f7N"/>
                         <outlet property="answerThreeLabel" destination="duF-W2-TBL" id="5jG-gx-3eL"/>
                         <outlet property="answerThreeView" destination="dBI-DP-o4u" id="wgz-Ld-ajX"/>
                         <outlet property="answerThreeVotes" destination="ftB-io-v6E" id="p21-tB-S9H"/>
                         <outlet property="answerTwoLabel" destination="AXI-gV-gVx" id="Hcs-r0-Ids"/>
+                        <outlet property="answerTwoView" destination="FKM-ZA-ZbM" id="Icc-yC-ojK"/>
                         <outlet property="answerTwoVotes" destination="zDr-Jo-Yqn" id="fRa-o7-jQC"/>
                         <outlet property="questionResultLabel" destination="ZUT-pD-XOB" id="3fx-8M-edg"/>
                     </connections>
@@ -437,7 +440,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1K6-FN-c78">
                                 <rect key="frame" x="20" y="160" width="374" height="171"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="45" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObW-dS-xtm">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="35" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ObW-dS-xtm">
                                         <rect key="frame" x="345" y="148.5" width="21" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.2388483713" green="0.73098429570000001" blue="0.1873235566" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -477,6 +480,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="vdI-fO-8HE"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="characterLabel" destination="ObW-dS-xtm" id="p2s-aQ-Y6m"/>
                         <outlet property="questionTextView" destination="Ptv-KR-mgc" id="sg3-KP-7ec"/>
                         <outlet property="shadowView" destination="1K6-FN-c78" id="lZg-wK-VmG"/>
                         <segue destination="ofc-gs-gaX" kind="show" identifier="optionSegue" id="0x0-mn-jzn"/>
@@ -605,45 +609,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="two" translatesAutoresizingMaskIntoConstraints="NO" id="YtV-6L-Ql7">
-                                <rect key="frame" x="47" y="308" width="320" height="280"/>
+                                <rect key="frame" x="20" y="170" width="374" height="430"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="gLc-OW-dUS"/>
-                                    <constraint firstAttribute="height" constant="280" id="ll1-wI-BDk"/>
+                                    <constraint firstAttribute="width" constant="374" id="gLc-OW-dUS"/>
+                                    <constraint firstAttribute="height" constant="430" id="ll1-wI-BDk"/>
                                 </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BNe-BS-sCj">
-                                <rect key="frame" x="184" y="793" width="46" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="46" id="r7A-xU-ASq"/>
-                                    <constraint firstAttribute="height" constant="30" id="sXi-pQ-84U"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <connections>
-                                    <action selector="snap:" destination="R9z-vJ-CgC" eventType="touchUpInside" id="9zI-dU-e6Q"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="YtV-6L-Ql7" firstAttribute="centerY" secondItem="srb-f7-HTX" secondAttribute="centerY" id="SY9-bX-bHt"/>
-                            <constraint firstItem="BNe-BS-sCj" firstAttribute="centerX" secondItem="srb-f7-HTX" secondAttribute="centerX" id="dDt-KN-eSB"/>
+                            <constraint firstItem="YtV-6L-Ql7" firstAttribute="top" secondItem="RpM-WZ-qqE" secondAttribute="top" constant="30" id="A7D-Im-jEw"/>
                             <constraint firstItem="YtV-6L-Ql7" firstAttribute="centerX" secondItem="srb-f7-HTX" secondAttribute="centerX" id="iMT-e2-5eI"/>
-                            <constraint firstItem="RpM-WZ-qqE" firstAttribute="bottom" secondItem="BNe-BS-sCj" secondAttribute="bottom" constant="39" id="krk-BQ-4GY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RpM-WZ-qqE"/>
                     </view>
                     <connections>
                         <outlet property="pollShow" destination="YtV-6L-Ql7" id="fYc-bu-oEG"/>
+                        <segue destination="Y6C-5b-q9H" kind="show" identifier="backToHome" id="XJc-v2-AUB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fbr-bO-ibI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4522" y="459"/>
+            <point key="canvasLocation" x="4521.739130434783" y="458.70535714285711"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2ie-p8-Lai">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0k5-OP-LTZ" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="mainVC" automaticallyAdjustsScrollViewInsets="NO" id="0k5-OP-LTZ" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="cqP-ox-IdB">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
@@ -662,4 +654,7 @@
     <resources>
         <image name="two" width="320" height="280"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="9WW-dy-12x"/>
+    </inferredMetricsTieBreakers>
 </document>

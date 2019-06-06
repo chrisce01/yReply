@@ -55,7 +55,7 @@ import UIKit
         case .ladyLips:
             return [#colorLiteral(red: 1, green: 0.6039215686, blue: 0.6196078431, alpha: 1), #colorLiteral(red: 0.9960784314, green: 0.8117647059, blue: 0.937254902, alpha: 1), #colorLiteral(red: 0.9960784314, green: 0.8117647059, blue: 0.937254902, alpha: 1)]
         case .sunnyMorning:
-            return [#colorLiteral(red: 0.9647058824, green: 0.8274509804, blue: 0.3960784314, alpha: 1), #colorLiteral(red: 0.9921568627, green: 0.6274509804, blue: 0.5215686275, alpha: 1)]
+            return [#colorLiteral(red: 0.9450621009, green: 1, blue: 0.1238737181, alpha: 1), #colorLiteral(red: 0.9863844015, green: 1, blue: 0.6278092894, alpha: 1), #colorLiteral(red: 0.9450621009, green: 1, blue: 0.1238737181, alpha: 1)]
         case .rainyAshville:
             return [#colorLiteral(red: 0.9843137255, green: 0.7607843137, blue: 0.9215686275, alpha: 1), #colorLiteral(red: 0.6509803922, green: 0.7568627451, blue: 0.9333333333, alpha: 1)]
         case .frozenDreams:
