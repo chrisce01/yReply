@@ -55,7 +55,7 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
         optionThree.layer.masksToBounds = true
         
         
-        let newButton = PastelView(frame:  CGRect(x: (self.view.frame.width/2)-(self.view.frame.width/3), y: ((self.view.frame.height/2)), width: (self.view.frame.width/1.25), height: 45))
+        let newButton = PastelView(frame:  CGRect(x: (self.view.frame.width/2)-(self.view.frame.width/3), y: ((self.view.frame.height/2) + 20), width: (self.view.frame.width/1.25), height: 45))
         newButton.center.x = self.view.center.x
         newButton.startPastelPoint = .bottomLeft
         newButton.endPastelPoint = .topRight
@@ -103,6 +103,12 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
                 optionTwo.placeholder = "Please fill in this field"
             }
         } else {
+            
+            DispatchQueue.main.async {
+                self.ref.child("users").child(extImp).updateChildValues(["fcmToken" : "user currently on create poll screen"])
+
+            }
+            
             let randStr = randomString(length: 10)
             pollQDetails["id"] = randStr
           
@@ -148,6 +154,8 @@ class OptionsViewController: UIViewController, UITextFieldDelegate {
                 numOpt = 4
             
             }
+            
+
             performSegue(withIdentifier: "finalPollSegue", sender: self)
         }
         

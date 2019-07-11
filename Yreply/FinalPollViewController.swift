@@ -9,12 +9,13 @@
 import UIKit
 import SCSDKCreativeKit
 import Pastel
+import Firebase
 
 class FinalPollViewController: UIViewController {
     let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .heavy)
 
     var snapAPI: SCSDKSnapAPI?
-    
+    var ref: DatabaseReference!
     @objc func snap() {
         impactFeedbackgenerator.impactOccurred()
         snapAPI?.startSnapping(completionHandler: { (error) in
@@ -194,6 +195,12 @@ class FinalPollViewController: UIViewController {
     @IBOutlet weak var pollShow: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        DispatchQueue.main.async {
+            self.ref = Database.database().reference()
+
+            self.ref.child("users").child(extImp).updateChildValues(["fcmToken" : tokenUpload])
+
+        }
         
         impactFeedbackgenerator.prepare()
         

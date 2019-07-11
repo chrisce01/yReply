@@ -2,15 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Allerta.ttf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -48,14 +39,24 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 	<key>SCSDKClientId</key>
-	<string>498c56d1-69c8-411c-9c7b-730fd82cb52b</string>
+	<string>4b52f780-7d7c-4924-b770-dd6be4769792</string>
 	<key>SCSDKRedirectUrl</key>
 	<string>Yreply://snap-kit/oauth2</string>
 	<key>SCSDKScopes</key>
 	<array>
+		<string>https://auth.snapchat.com/oauth2/api/user.external_id</string>
 		<string>https://auth.snapchat.com/oauth2/api/user.bitmoji.avatar</string>
 		<string>https://auth.snapchat.com/oauth2/api/user.display_name</string>
+	</array>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Allerta.ttf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

@@ -89,26 +89,11 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.layer.shadowRadius = 5
         cell.layer.shadowOpacity = 1
         
-//        cell.layer.borderColor = UIColor.black.cgColor
-//        cell.layer.borderWidth = 2
-//        cell.layer.shadowPath = UIBezierPath(roundedRect: cell.layer.bounds, byRoundingCorners: .allCorners, cornerRadii: CGSize(width: 14, height: 14)).cgPath
         cell.layer.shadowPath = UIBezierPath(roundedRect: cell.layer.bounds, cornerRadius:         cell.layer.cornerRadius).cgPath
-        
-        
-//        let keys = loadPollFromThis.allKeys as! Array<String>
-        //let poll = loadPollFromThis[keys[indexPath.section]] as? NSDictionary
-//        let poll = loadPollFromThis[indexPath.section] as? NSDictionary
+
         listOfPolls.sort(by: {$0.timeStamp > $1.timeStamp})
         
         let poll = listOfPolls[indexPath.section]
-        
-//        print(loadPollFromThis)
-//        var new = [Polls]()
-//        for arrayIndex in stride(from: listOfPolls.count - 1, through: 0, by: -1) {
-//            new.append(listOfPolls[arrayIndex])
-//        }
-//        listOfPolls = new
-//        cell.qLabelLoad.text = poll?["question"] as? String
         let choices = poll.choices as? NSArray
         
         cell.qLabelLoad.text = poll.question
@@ -214,7 +199,6 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
         
         DispatchQueue.main.async {
             
-            
             let graphQLQuery = "{me{displayName, bitmoji{avatar}, externalId}}"
             
             let variables = ["page": "bitmoji"]
@@ -237,14 +221,8 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
                     
                     let allDetails = [displayName, bitmojiAvatarUrl] as? Array<String>
                     nameAndBitmojiArray = allDetails
-
-                    
-                    // Essential to remove slashes from external id so that firebase doesn't make child after every slash
-                    
-                    //                        self.ref.child("users").child(externalId!.replacingOccurrences(of: "/", with: "")).setValue(["displayName" : displayName ?? "Default", "bitmojiId" : bitmojiAvatarUrl ?? "NA"])
                     
                     let url = bitmojiAvatarUrl
-                    
                     
                     self.ref.child("polls").child(extImp).queryOrdered(byChild: "timeStamp").observe(.childAdded, with: { (snapshot) in
                         let value = snapshot.value as? NSDictionary
@@ -266,7 +244,7 @@ class MainScreenViewController: UIViewController, UITableViewDelegate, UITableVi
                     })
                     DispatchQueue.main.async {
                         self.removeAllOverlays()
-
+                        self.tableView.reloadData()
                     }
                     self.downloadImage(from: URL(string: url!)!)
                     //first download extImp then qyer

@@ -10,6 +10,7 @@ import UIKit
 import SCSDKLoginKit
 import Cheers
 import Firebase
+import SafariServices
 
 var extImp = ""
 var bitmojiImage : UIImage = UIImage()
@@ -33,9 +34,11 @@ class ViewController: UIViewController {
         let loginButton = SCSDKLoginButton() { (success : Bool, error : Error?) in
             // do something
             if (error != nil){
+                print("YEH HAI" + error!.localizedDescription)
                 print("Error")
             }
             else {
+                
                 let graphQLQuery = "{me{displayName, bitmoji{avatar}, externalId}}"
                 
                 let variables = ["page": "bitmoji"]
@@ -74,8 +77,7 @@ class ViewController: UIViewController {
                     }
                     
                 }, failure: { (error: Error?, isUserLoggedOut: Bool) in
-                   
-                })
+                                   })
             }
         }
         

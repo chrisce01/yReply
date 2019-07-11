@@ -505,7 +505,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LJb-ls-DAK">
-                                <rect key="frame" x="20" y="204" width="374" height="172"/>
+                                <rect key="frame" x="20" y="196" width="374" height="172"/>
                                 <subviews>
                                     <textField opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Option 1" textAlignment="natural" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="5Ez-97-L7c">
                                         <rect key="frame" x="8" y="1" width="358" height="42"/>
@@ -579,7 +579,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="LJb-ls-DAK" firstAttribute="leading" secondItem="8kB-8z-kAi" secondAttribute="leading" constant="20" id="1r8-Z8-Tes"/>
-                            <constraint firstItem="LJb-ls-DAK" firstAttribute="top" secondItem="Vw4-tG-v5b" secondAttribute="bottom" constant="23" id="3Fy-t3-oW0"/>
+                            <constraint firstItem="LJb-ls-DAK" firstAttribute="top" secondItem="Vw4-tG-v5b" secondAttribute="bottom" constant="15" id="3Fy-t3-oW0"/>
                             <constraint firstItem="8kB-8z-kAi" firstAttribute="trailing" secondItem="Vw4-tG-v5b" secondAttribute="trailing" constant="20" id="6gb-wy-iqQ"/>
                             <constraint firstItem="Vw4-tG-v5b" firstAttribute="top" secondItem="8kB-8z-kAi" secondAttribute="top" constant="15" id="OS6-dr-whK"/>
                             <constraint firstItem="8kB-8z-kAi" firstAttribute="trailing" secondItem="LJb-ls-DAK" secondAttribute="trailing" constant="20" id="d2M-h5-08w"/>
@@ -640,6 +640,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="cqP-ox-IdB">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="28"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>

@@ -34,8 +34,8 @@ class CreatePollViewController: UIViewController, UITextViewDelegate {
         view.addGestureRecognizer(UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:))))
 
         self.navigationController?.isNavigationBarHidden = false
-        
-        let newButton = PastelView(frame:  CGRect(x: (self.view.frame.width/2)-(self.view.frame.width/3), y: ((self.view.frame.height/2 - 20)), width: (self.view.frame.width/1.25), height: 45))
+ 
+        let newButton = PastelView(frame:  CGRect(x: (self.view.frame.width/2)-(self.view.frame.width/3), y: ((self.view.frame.height/2 + 10)), width: (self.view.frame.width/1.25), height: 45))
         newButton.center.x = self.view.center.x
         newButton.startPastelPoint = .bottomLeft
         newButton.endPastelPoint = .topRight
@@ -90,6 +90,7 @@ class CreatePollViewController: UIViewController, UITextViewDelegate {
     }
     
     override func viewDidAppear(_ animated: Bool) {
+
         questionTextView.becomeFirstResponder()
     }
     
@@ -106,6 +107,9 @@ class CreatePollViewController: UIViewController, UITextViewDelegate {
         shadowView.layer.shadowOffset = .zero
         shadowView.layer.shadowOpacity = 1
         shadowView.layer.shadowPath = shadowPath.cgPath
+        
+       
+        
     }
     
     
